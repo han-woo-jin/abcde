@@ -1,5 +1,11 @@
 .App {
-  text-align: center;
+  text-align: left;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 .App-logo {
@@ -11,6 +17,18 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.Word {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font: inherit;
+  vertical-align: baseline;
+  margin-right: 5px;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .App-header {
@@ -35,4 +53,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+.input1 {
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+  font-family: ChosunGu, "Noto Sans SC", sans-serif;
+  outline: none;
+  height: 28px;
+  padding: 5px 0px;
+  border-bottom: 2px solid #96baff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: border-color 300ms ease-in-out 0s;
+}
+.input1:focus {
+  width: 100%;
+  border: none;
+  border-bottom: 2.5px solid blue;
+
+  background-color: transparent;
 }
