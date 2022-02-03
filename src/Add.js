@@ -73,10 +73,10 @@ const Box2 = styled.div`
   left: 50%;
   top: 35%;
   transform: translate(-50%, -50%);
-  margin: 0px;
+  margin-top: 20px;
   height: 310px;
     width: 450px;
-    padding:20px;
+    padding:25px;
     border: 2px solid #96BAFF;
     border-radius: 10px;
     box-sizing: border-box;
