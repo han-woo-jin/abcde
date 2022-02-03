@@ -5,6 +5,9 @@ import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { SpeedDial, SpeedDialIcon } from '@mui/material';
 import { Button } from '@material-ui/core';
+
+import Box from '@mui/material/Box';
+import Icon from '@mui/material/Icon';
 import {
   deleteBucketFB,
   updateBucketFB,
@@ -35,9 +38,10 @@ const BucketList = (props) => {
   }
   return (
     <ListStyle>
+
       <SpeedDial
         ariaLabel="SpeedDial basic example"
-        sx={{ position: 'absolute', bottom: 16, right: 16 }}
+        sx={{ position: 'fixed', bottom: 16, right: 16 }}
         icon={<SpeedDialIcon />}
         onClick={() => {
           history.push("/add");
@@ -61,7 +65,6 @@ const BucketList = (props) => {
                   <p>예시 : {list.example}</p>
                 </div>
                 <Buttons>
-
                   <div>
                     <button onClick={() => {
                       check_bucket(list)
@@ -117,7 +120,12 @@ const Buttons = styled.div`
         font-size: 20px;
         border: none;
         background-color: transparent;
+        
       }
+      button:hover{
+        color:blue;
+      }
+      
     }
 `;
 
@@ -131,6 +139,7 @@ const ItemStyle = styled.div`
     box-sizing: border-box;
   
   background-color: ${(props) => (props.completed ? "#96BAFF" : "white")};
+  color: ${(props) => (props.completed ? "white" : "black")};
 `;
 
 export default BucketList;
