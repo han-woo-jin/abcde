@@ -10,24 +10,28 @@ import {
   updateBucketFB,
   changeBucket,
   loadBucketFB,
+  checkBucketFB
 } from "./redux/modules/word";
 import Grid from '@mui/material/Grid';
+
+import { BsXLg, BsCheckLg } from "react-icons/bs";
 
 
 const BucketList = (props) => {
   React.useEffect(async () => {
     dispatch(loadBucketFB());
   }, []);
-
+  const delete_bucket = (bucket_id) => {
+    dispatch(deleteBucketFB(bucket_id));
+    history.push("/");
+  }
   const history = useHistory();
   const dispatch = useDispatch();
   const params = useParams();
   const bucket_index = params.index;
   const bucket_list = useSelector((state) => state.bucket.list);
-  const change = () => {
-    bucket_list[bucket_index].completed ?
-      dispatch(updateBucketFB(bucket_list[bucket_index].id)) :
-      dispatch(changeBucket(bucket_list[bucket_index].id))
+  const check_bucket = (word_id) => {
+    dispatch(checkBucketFB(word_id));
   }
   return (
     <ListStyle>
@@ -46,10 +50,7 @@ const BucketList = (props) => {
         {bucket_list.map((list, index) => {
           return (
             <Grid item xs={2} sm={4} md={4} key={index} >
-              <ItemStyle completed={list.completed} className="list_item" key={index}
-                onClick={() => {
-                  history.push("/detail/" + index)
-                }}>
+              <ItemStyle completed={list.completed} className="list_item" key={index}>
                 <div>
                   <p>단어 : {list.text}</p>
                 </div>
@@ -59,28 +60,21 @@ const BucketList = (props) => {
                 <div style={{ color: "blue" }}>
                   <p>예시 : {list.example}</p>
                 </div>
-                {/* <Button
-                  variant="outlined"
-                  color="primary"
-                  onClick={() => {
-                    change();
-                    history.goBack();
-                  }}
-                >
-                  완료하기
-                </Button>
-                <Button
-                  variant="outlined"
-                  color="secondary"
-                  onClick={() => {
-                    dispatch(deleteBucketFB(bucket_list[bucket_index].id));
-                    history.goBack();
-                  }}
-                >
-                  삭제하기
-                </Button> */}
-              </ItemStyle>
+                <Buttons>
 
+                  <div>
+                    <button onClick={() => {
+                      check_bucket(list)
+                    }}><BsCheckLg /></button>
+                  </div>
+
+                  <div>
+                    <button onClick={() => {
+                      delete_bucket(list.id)
+                    }}><BsXLg /></button>
+                  </div>
+                </Buttons>
+              </ItemStyle>
             </Grid>
           );
         })}
@@ -104,6 +98,27 @@ const ListStyle = styled.div`
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
+`;
+const Buttons = styled.div`
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    >div{
+      button{
+        font-size: 20px;
+        border: none;
+        background-color: transparent;
+      }
+    }
 `;
 
 const ItemStyle = styled.div`

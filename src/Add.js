@@ -74,7 +74,7 @@ const Box2 = styled.div`
   top: 35%;
   transform: translate(-50%, -50%);
   margin: 0px;
-  height: 280px;
+  height: 310px;
     width: 450px;
     padding:20px;
     border: 2px solid #96BAFF;
@@ -89,7 +89,7 @@ padding: 0px;
 border: 0px;
 font: inherit;
 vertical-align: baseline;
-font-size: 14px;
+font-size: 18px;
 font-weight: 600;
 margin-bottom: 5px;
     `;

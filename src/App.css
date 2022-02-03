@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap");
+
 .App {
   text-align: left;
   box-sizing: border-box;
@@ -6,6 +8,22 @@
   border: 0px;
   font: inherit;
   vertical-align: baseline;
+  font-family: "Gaegu", cursive;
+  font-size: x-large;
+}
+.buttons {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font: inherit;
+  vertical-align: baseline;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
 }
 
 .App-logo {

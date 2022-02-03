@@ -37,7 +37,7 @@ const Detail = (props) => {
               history.push("/");
             }}
           >
-            완료하기
+            암기완료
           </Button>
           <Button
             variant="outlined"
